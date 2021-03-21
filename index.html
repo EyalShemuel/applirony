@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="heb" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AplicRony</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--  <script type="text/javascript" src="scripts/mespeak.js"></script> -->
+    <script type="text/javascript" src="./scripts/jquery-1.8.2.min.js"></script>
+    <script data-cfasync="false"> 
+        window.interdeal = {
+            sitekey   : "42f2b056e7dc7c9852cf86d1926d7a7d",
+            Position  : "Right",
+            Menulang  : "HE",
+                btnStyle : {
+                    vPosition : ["60px", undefined],
+                    },
+            domains	 : {
+              js  : "https://js.nagich.co.il/",
+              acc : "https://access.nagich.co.il/"
+            },
+        }
+        </script>
+        <script>
+        (function(doc, head, body){
+            var coreCall             = doc.createElement('script');
+            coreCall.src             = 'https://js.nagich.co.il/core/2.1.9/accessibility.js';
+            coreCall.defer           = true;
+            coreCall.integrity       = 'sha512-JkluHARviIJeTsvupKh9gkG6AsMbbBOkfg9zPQvZwxJtslc0NTDhdQrVX+qg45fEyM97XrW07Gb8wmh/vwlITA==';
+            coreCall.crossOrigin     = 'anonymous';
+            coreCall.setAttribute('data-cfasync', true );
+            body? body.appendChild(coreCall) : head.appendChild(coreCall);
+        })(document, document.head, document.body);
+        </script><script src="accsesability.js" defer="" integrity="sha512-JkluHARviIJeTsvupKh9gkG6AsMbbBOkfg9zPQvZwxJtslc0NTDhdQrVX+qg45fEyM97XrW07Gb8wmh/vwlITA==" crossorigin="anonymous" data-cfasync="true"></script>
+            
+</head>
+
+<body>
+    <div class="app">
+
+        <header lang="en">AplicRony</header>
+        <div id="messagesWrapper">
+            <!-- <div class='message InMessage'>שלום, מה שלומך?<div class="tail"></div> </div> -->
+        </div>
+        <form class="inputText" onsubmit='handleSubmitMessage(event)'>
+            <textarea name="message" onkeyup='handleTextArea(event)'></textarea>
+            <button type="submit" id='submitButton'>
+                <span class="material-icons" style="font-size:300%">reply</span>
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <script src="./scripts/index.js"></script>
+    <script>
+        window.onload = load;
+        var myData;
+
+
+        function load() {
+            /* $.getJSON("scripts/Dictionary.json", function (json) {
+                myData = json;
+            }); */
+
+            //mespeak
+            /*   meSpeak.loadConfig("scripts/mespeak_config.js");
+              meSpeak.loadVoice("scripts/pl.js"); */
+            fetch("./scripts/Dictionary.json")
+                .then(response => response.json())
+                .then(response => {
+                    myData = response;
+                });
+                console.log(myData)
+
+        }
+    </script>
+</body>
+
+</html>
