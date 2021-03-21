@@ -1,17 +1,3 @@
-/******************************************
- *  Author : eyal shemuel
- *  Created On : Mon Dec 28 2020
- *  File : server.js.js
- * 
- * https://rapidapi.com/cloud-actions-cloud-actions-default/api/google-ai-vision?endpoint=apiendpoint_9279cd90-1910-4cae-b5ff-c3ea68bc9777
- * this api can:
- *         find faces in image
- *         Detect Image Object
- *         Facial Emotion Recognition
- *         covert Image to Text
- * and more
- *******************************************/
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -24,6 +10,7 @@ const port = process.env.PORT || 3000;
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.static('public'));
+app.get('*',(req,res) => {res.sendFile(path.join(__dirname,'build','index.html'))})
 
 app.post('/SendMessage', async (req, res) => {
 
@@ -145,6 +132,7 @@ const getFaceFromImage = async (imageUrl) => {
 
 
 
-app.listen(port, () => {
-  console.log(`Listen on port ${port}`);
-});
+const port = process.env.PORT || 4000;
+app.listen(port, ()=>{
+    console.log(`Listening on port ${port}`);
+})
