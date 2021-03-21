@@ -1,5 +1,5 @@
 @charset "UTF-8";
-<<<<<<< HEAD
+
 body, html {
   margin: 0px;
 }
@@ -8,7 +8,7 @@ body, html {
   display: grid;
   grid-template-rows: 30px auto 100px;
   height: 100vh;
-=======
+
 :root {
   --background: #E5FFB3;
   --background-accent: #DBF8A3;
@@ -38,10 +38,9 @@ body, html {
 header {
   background-color: teal;
   color: white;
-<<<<<<< HEAD
-=======
+
   font-size: 2rem;
->>>>>>> master
+
   text-align: center;
   display: flex;
   justify-content: center;
@@ -49,7 +48,7 @@ header {
 }
 
 .inputText {
-<<<<<<< HEAD
+
   width: 100%;
   display: flex;
 }
@@ -60,7 +59,7 @@ header {
 
 #messagesWrapper {
   background-color: #f0f0f0;
-=======
+
   height: 90%;
   width: 100%;
   display: flex;
@@ -114,20 +113,20 @@ header {
 .message {
   background-color: #eeffd4;
   padding: 20px;
-<<<<<<< HEAD
+
   width: max-content;
-=======
+
   width: 90%;
->>>>>>> master
+
   margin: 3%;
   position: relative;
   border-radius: 5px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.534);
-<<<<<<< HEAD
+
   justify-self: end;
-=======
+
   font-size: 1.3rem;
->>>>>>> master
+
 }
 .message ::after {
   background-color: #eeffd4;
@@ -137,17 +136,17 @@ header {
   height: 20px;
   width: 20px;
   position: absolute;
-<<<<<<< HEAD
+
   /* left: 95%; */
-=======
+
   left: 1%;
->>>>>>> master
+
   top: 82.5%;
   transform: rotate(316deg);
 }
 
 .InMessage {
-<<<<<<< HEAD
+
   background-color: #d4faff;
   /* left: 50%; */
 }
@@ -155,7 +154,7 @@ header {
   background-color: #d4faff;
   left: 20%;
   top: 82.5%;
-=======
+
   background-color: #e0f7fae3;
   left: -3%;
   padding: 20px;
@@ -178,5 +177,5 @@ header {
   width: 20px;
   position: absolute;
   transform: rotate(316deg);
->>>>>>> master
+
 }

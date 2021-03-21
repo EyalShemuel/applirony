@@ -17,7 +17,6 @@
     "node-fetch": "^2.6.1",
     "url-encode-decode": "^1.0.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EyalShemuel/applirony.git"
