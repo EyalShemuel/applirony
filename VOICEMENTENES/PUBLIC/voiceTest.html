@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="scripts/jquery-1.8.2.min.js"></script>
+    <script src="scripts/index.js"></script>
+</head>
+
+<body>
+    <script>
+        window.onload = load;
+        var myData;
+
+
+        function load() {
+            $.getJSON("./Dictionary.json", function (json) {
+                myData = json;
+            });
+        }
+
+        function Speech1(message) {
+            var msg = new SpeechSynthesisUtterance();
+            var voices = window.speechSynthesis.getVoices();
+            console.table(voices)
+            msg.voice = voices[10];
+            msg.volume = 1; // From 0 to 1
+            msg.rate = 1; // From 0.1 to 10
+            msg.pitch = 2; // From 0 to 2
+            msg.text = message;
+            msg.lang = 'en';
+            speechSynthesis.speak(msg);
+        }
+
+        function Speech(str) { if (myData.hasOwnProperty(str)) return myData[str]; else return ""; }
+
+        function process(text) {
+            let TheInput = text;//document.getElementById("input").value;
+            TheInput = TheInput.replaceAll(".", "");
+            TheInput = TheInput.replaceAll("?", "");
+            TheInput = TheInput.replaceAll(",", "");
+            let InputSplit = TheInput.split(' ');
+            console.log(InputSplit);
+            let Output = '';
+
+
+            for (str in InputSplit) {
+                console.log(str);
+                console.log(Speech(InputSplit[str]));
+                Output += `${Speech(InputSplit[str])} `;
+            }
+
+       
+            console.log(Output);
+            Speech1(Output);
+        }
+
+    </script>
+</body>
+
+</html>
