@@ -10,6 +10,9 @@ const port = process.env.PORT || 3000;
 app.use(cookieParser());
 app.use(bodyParser. json());
 app.use(express.static('public'));
+app.use("/index", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public", "index.html"));
+});
 app.get('*',(req,res) => {res.sendFile(path.join(__dirname,'public','index.html'))})
 
 app.post('/SendMessage', async (req, res) => {
@@ -39,8 +42,7 @@ app.post('/SendMessage', async (req, res) => {
 async function SendMessageToRobot(massage) {
   let robotResponseMsg;
   await fetch(
-    //  `https://acobot-brainshop-ai-v1.p.rapidapi.com/get?bid=178&key=sX5A2PcYZbsN5EY6&uid=mashape&msg=${massage}`,
-    ` https://acobot-brainshop-ai-v1.p.rapidapi.com/get?bid=154389&key=MqKbUKOqNKyU0Dmg&uid=moshe&msg=${massage}`,
+       ` https://acobot-brainshop-ai-v1.p.rapidapi.com/get?bid=154389&key=MqKbUKOqNKyU0Dmg&uid=moshe&msg=${massage}`,
     {
       method: 'GET',
       headers: {
