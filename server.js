@@ -3,16 +3,13 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const fetch = require('node-fetch');
 const { encode, decode } = require('url-encode-decode')
-
 const app = express();
-const port = process.env.PORT || 3000;
+
 
 app.use(cookieParser());
 app.use(bodyParser. json());
 app.use(express.static('public'));
-app.use("/index", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public", "index.html"));
-});
+
 app.get('*',(req,res) => {res.sendFile(path.join(__dirname,'public','index.html'))})
 
 app.post('/SendMessage', async (req, res) => {
@@ -133,8 +130,7 @@ const getFaceFromImage = async (imageUrl) => {
 
 
 
-
-const myPort = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 app.listen(port, ()=>{
-    console.log(`Listening on port ${myPort}`);
+    console.log(`Listening on port ${port}`);
 })
