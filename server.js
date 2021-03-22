@@ -15,16 +15,16 @@ app.get('*',(req,res) => {res.sendFile(path.join(__dirname,'public','index.html'
 app.post('/SendMessage', async (req, res) => {
 
   try {
-    /* console.log(req.body.message) */
+    console.log(req.body.message)
 
     const EngTransaction = await translate('iw', 'en', req.body.message)// translate massage to english
-    /* console.log(EngTransaction) */
+    console.log(EngTransaction)
 
     const RobotMassage = await SendMessageToRobot(EngTransaction)// send massage to the robot 
-    /* console.log(RobotMassage) */
+    console.log(RobotMassage)
 
     const hebTransaction = await translate('en', 'iw', RobotMassage)//translate massage to hebrew
-    /* console.log(hebTransaction) */
+    console.log(hebTransaction)
 
     res.send({ hebTransaction });
   } catch (e) {
