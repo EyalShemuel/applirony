@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 app.use(cookieParser());
 app.use(bodyParser. json());
 app.use(express.static('public'));
-app.get('*',(req,res) => {res.sendFile(path.join(__dirname,'build','index.html'))})
+app.get('*',(req,res) => {res.sendFile(path.join(__dirname,'public','index.html'))})
 
 app.post('/SendMessage', async (req, res) => {
 
